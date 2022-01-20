@@ -1,0 +1,33 @@
+﻿@model PostMe.Models.Post
+@{
+    ViewData["Title"] = "Update Post";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<div class="container col-md-4">
+    <form method="post" asp-action="UpdatePost">
+        <input asp-for="Id" hidden/>
+        <div class="row form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" maxlength="100" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="row form-group">
+            <label asp-for="Content"></label>
+            <textarea asp-for="Content" id="content" class="form-control text-xl" rows="10"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div class="row btn-group">
+            <input type="submit" class="btn btn-info m-md-2" value="Update" />
+            <a class="btn btn-danger m-md-2" asp-action="Index">Back</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+}}
